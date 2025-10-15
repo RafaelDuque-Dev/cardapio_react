@@ -123,6 +123,13 @@ export default function App() {
         </div>
       </main>
 
+      <footer className="app-footer">
+          <p>&copy; {new Date().getFullYear()} Cardápio Digital - Kairos. Todos os direitos reservados.</p>
+          <p className="small">Desenvolvido com React e CSS Simples.</p>
+       </footer>
+
+          
+
       <div className="cart">
         <h3>Carrinho</h3>
         {cartItems.length === 0 ? <div style={{color:'var(--muted)'}}>Carrinho vazio</div> : (

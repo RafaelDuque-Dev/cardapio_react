@@ -178,6 +178,30 @@ input.searchin {
 }
 
 /* =========================
+   RODAPÉ
+========================= */
+.app-footer {
+  /* Estilos de container replicados de header/main */
+  background: rgba(0, 0, 0, 0.692); /* leve transparência */
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  /* Estilos de texto */
+  text-align: center; 
+  color: var(--muted);
+  font-size: 14px;
+  /* Garante espaço após o último item da main */
+  margin-top: 100px; 
+}
+
+.app-footer p {
+  margin: 4px 0;
+}
+
+/* =========================
    CARRINHO
 ========================= */
 .cart {
