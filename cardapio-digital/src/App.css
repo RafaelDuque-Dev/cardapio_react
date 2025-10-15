@@ -1,0 +1,258 @@
+/* =========================
+   PALETA E VARIÁVEIS
+========================= */
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #ff6b35;
+  --muted: #d8d8d8;
+  --glass: rgba(255, 255, 255, 0.03);
+}
+
+/* =========================
+   GLOBAIS
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin: 0;
+  background: linear-gradient(180deg, #0b1220 0%, #071022 100%);
+  color: #e6eef6;
+}
+
+/* =========================
+   LAYOUT PRINCIPAL
+========================= */
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  backdrop-filter: blur(6px); /* desfoca o fundo */
+  background: rgba(0, 0, 0, 0.45); /* camada escura translúcida */
+  color: white;
+}
+
+/* ====== Fundo e Carrossel ====== */
+.carousel-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.carousel-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+header, .controls, main, .cart {
+  background: rgba(0, 0, 0, 0.692); /* leve transparência */
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #ff8a66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+p.lead {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* =========================
+   CONTROLES / BUSCA
+========================= */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search {
+  flex: 1;
+  min-width: 220px;
+}
+
+input.searchin {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: var(--glass);
+  color: inherit;
+}
+
+.select,
+.btn {
+  padding: 10px 12px;
+  color: var(--muted);
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+
+/* =========================
+   GRID E CARDS
+========================= */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 16px;
+  width: 260px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.img {
+  height: 140px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.cat {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.add {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent), #ff8a66);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   CARRINHO
+========================= */
+.cart {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: linear-gradient(180deg, #071022, #06121d);
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  min-width: 300px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.cart h3 {
+  margin: 0 0 8px 0;
+}
+
+.cart .item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.smallbtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 640px) {
+  .app {
+    padding: 12px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+}
