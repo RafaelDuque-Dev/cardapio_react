@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./App.css"; // ✅ importa o CSS externo
-import BackgroundCarousel from "./components/BackgroundCarousel";
+
 
 
 // App.jsx — substitua seu src/App.jsx por este arquivo em um projeto Create React App
@@ -64,12 +64,11 @@ export default function App() {
 
   return (
     <div className="app">
-      <BackgroundCarousel /> {/* 🔥 Fundo com carrossel */}
       <header>
         <div className="brand">
           <div className="logo">CD</div>
           <div>
-            <h1>Cardápio Digital — Kairos</h1>
+            <h1>Cardápio Digital</h1>
             <p className="lead">Pronto, elegante e responsivo — toque para pedir ou compartilhe o link</p>
           </div>
         </div>

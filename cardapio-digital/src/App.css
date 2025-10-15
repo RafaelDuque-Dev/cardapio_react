@@ -5,8 +5,8 @@
   --bg: #0f1724;
   --card: #0b1220;
   --accent: #ff6b35;
-  --muted: #d8d8d8;
-  --glass: rgba(255, 255, 255, 0.03);
+  --muted: #bebaba;
+  --glass: rgba(255, 255, 255, 0.103);
 }
 
 /* =========================
@@ -19,7 +19,13 @@
 body {
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   margin: 0;
-  background: linear-gradient(180deg, #0b1220 0%, #071022 100%);
+  /* 🎯 CORREÇÃO: Usar a função 'url()' e adicionar propriedades de fundo */
+  background-image: url("https://images.pexels.com/photos/5883539/pexels-photo-5883539.jpeg");
+  background-size: cover; /* Garante que a imagem cubra todo o corpo */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  /* Adicione um fallback com uma cor escura, caso a URL falhe */
+  background-color: #0b1220;
   color: #e6eef6;
 }
 
@@ -27,44 +33,13 @@ body {
    LAYOUT PRINCIPAL
 ========================= */
 .app {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  backdrop-filter: blur(6px); /* desfoca o fundo */
-  background: rgba(0, 0, 0, 0.45); /* camada escura translúcida */
-  color: white;
-}
-
-/* ====== Fundo e Carrossel ====== */
-.carousel-container {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: -2;
-}
-
-.carousel-image {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-}
-
-.carousel-image.active {
-  opacity: 1;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 20px;
 }
 
 header, .controls, main, .cart {
-  background: rgba(0, 0, 0, 0.692); /* leve transparência */
+  background: rgba(0, 0, 0, 0.589); /* leve transparência */
   backdrop-filter: blur(10px);
   border-radius: 12px;
   margin: 20px auto;
@@ -123,6 +98,7 @@ p.lead {
 .search {
   flex: 1;
   min-width: 220px;
+  color: var(--muted);
 }
 
 input.searchin {
@@ -132,6 +108,7 @@ input.searchin {
   border: 1px solid transparent;
   background: var(--glass);
   color: inherit;
+  
 }
 
 .select,
@@ -148,20 +125,20 @@ input.searchin {
    GRID E CARDS
 ========================= */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 15px;
-  padding: 16px;
-  width: 260px;
-  color: #fff;
-  transition: all 0.3s ease;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .img {
